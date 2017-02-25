@@ -38,6 +38,12 @@ if ( ! class_exists( 'WC_Auto_Stock_Restore' ) ) {
 			add_action( 'woocommerce_order_status_processing_to_refunded', array( $this, 'restore_order_stock' ), 10, 1 );
 			add_action( 'woocommerce_order_status_completed_to_refunded', array( $this, 'restore_order_stock' ), 10, 1 );
 			add_action( 'woocommerce_order_status_on-hold_to_refunded', array( $this, 'restore_order_stock' ), 10, 1 );
+			add_action( 'woocommerce_order_status_processing_to_cbs', array( $this, 'restore_order_stock' ), 10, 1 );
+			add_action( 'woocommerce_order_status_completed_to_cbs', array( $this, 'restore_order_stock' ), 10, 1 );
+			add_action( 'woocommerce_order_status_on-hold_to_cbs', array( $this, 'restore_order_stock' ), 10, 1 );
+			add_action( 'woocommerce_order_status_processing_to_didnt-recieve', array( $this, 'restore_order_stock' ), 10, 1 );
+			add_action( 'woocommerce_order_status_completed_to_didnt-recieve', array( $this, 'restore_order_stock' ), 10, 1 );
+			add_action( 'woocommerce_order_status_on-hold_to_didnt-recieve', array( $this, 'restore_order_stock' ), 10, 1 );
 		} // End __construct()
 
 		public function restore_order_stock( $order_id ) {
